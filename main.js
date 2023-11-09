@@ -5,18 +5,28 @@
 // mandare 5 prompt diversi e salvare il valore inserito
 
 // confrontare se i numeri inseriti nei propt sono presenti nei numeri generati
-// document.getElementById("numeri").innerHTML = "";
+
 
 let randomNumber = [];
 let checknumber = [];
-for(let i = 1; i <=5;){
+for (let i = 1; i <= 5;) {
     let numeroCasuale = Math.floor(Math.random() * 20) + 1;
-    
-    if(!checknumber.includes(numeroCasuale)){
-         randomNumber.push(numeroCasuale);
-         checknumber.push(numeroCasuale);
-         i++;
+
+    if (!checknumber.includes(numeroCasuale)) {
+        randomNumber.push(numeroCasuale);
+        checknumber.push(numeroCasuale);
+        i++;
     }
+}
+
+// Ottieni l'elemento con id "randomNumbers" dalla pagina HTML
+let randomNumbersDiv = document.getElementById("randomNumbers");
+
+// Aggiungi numeri casuali come paragrafi all'elemento div
+for (let i = 0; i < randomNumber.length; i++) {
+    let paragrafo = document.createElement("p");
+    paragrafo.innerHTML = randomNumber[i];
+    randomNumbersDiv.appendChild(paragrafo);
 }
 
 console.log(randomNumber);
